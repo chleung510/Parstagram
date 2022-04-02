@@ -70,16 +70,14 @@ class MainActivity : AppCompatActivity() {
 
         // Set default selection
         findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_home
+    }
 
-
-
-
-    fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
-    fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.logout){
             ParseUser.logOut()
             val intent = Intent(this,LoginActivity::class.java)
@@ -87,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-    }
+    
     companion object {
         const val TAG = "MainActivity"
     }
